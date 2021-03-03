@@ -149,10 +149,10 @@ d3.csv("assets/data/data.csv").then(function(censusData, err) {
     data.healthcare = +data.healthcare;
   });
   
-  // xLinearScale function above csv import
+  // xLinearScale function 
   var xLinearScale = xScale(censusData, selectXAxis);
 
-  // yLinearScale function above csv import
+  // yLinearScale function 
   var yLinearScale = yScale(censusData, selectYAxis);
 
   // Create initial axis functions

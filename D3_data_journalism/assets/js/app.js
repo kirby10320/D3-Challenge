@@ -17,11 +17,11 @@ var svg = d3
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
-// Append SVG group that will hold our chart, and shift the latter by left and top margins.
+// Append SVG group that will hold chart, shift latter by left and top margins.
 var chartData = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// zParameters
+// Parameters
 var selectXAxis = "poverty";
 var selectYAxis = "obesity";
 
@@ -117,7 +117,7 @@ function updateToolTip(selectXAxis, selectYAxis, textGroup) {
     ylabel = "Smokes:";
   }
   else {
-    ylabel = "Lacks Healthcare:";
+    ylabel = "Lacking Healthcare:";
   }
   var toolTip = d3.tip()
   .attr("class", "d3-tip")
@@ -240,7 +240,7 @@ d3.csv("assets/data/data.csv").then(function(censusData, err) {
    .attr("dy", "3em")
    .attr("value", "healthcare") // value for event listener
    .classed("inactive", true)
-   .text("Lacks Healthcare (%)");
+   .text("Lacking Healthcare (%)");
 
 // updating ToolTip function 
   var textGroup = updateToolTip(selectXAxis, selectYAxis, textGroup);

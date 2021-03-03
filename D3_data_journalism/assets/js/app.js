@@ -126,7 +126,7 @@ function updateToolTip(selectXAxis, selectYAxis, textGroup) {
     return (`${d.state}<br>${xlabel} ${d[selectXAxis]}<br>${ylabel} ${d[selectYAxis]}`);
   });
   textGroup.call(toolTip);
-  textGroup.on("mouseover", function(data) {
+  textGroup.on("mouseover", function(data) { // on mouseover event
     toolTip.show(data, this);
   })
  
@@ -137,10 +137,9 @@ function updateToolTip(selectXAxis, selectYAxis, textGroup) {
 return textGroup;
 }
 
-// Retrieve data from CSV file 
+// Retrieve data from CSV file and parse
 d3.csv("assets/data/data.csv").then(function(censusData, err) {
   if (err) throw err;
-  // parse data
   censusData.forEach(function(data) {
     data.poverty = +data.poverty;
     data.age = +data.age;
@@ -170,7 +169,7 @@ d3.csv("assets/data/data.csv").then(function(censusData, err) {
   var yAxis = chartData.append("g")
   .call(leftAxis);
 
-// Create Circles and state text inside circles
+// Create Circles and state abbr inside circles
   var circlesTextGroup = chartData.selectAll("circle")
   .data(censusData)
   .enter();
@@ -367,6 +366,7 @@ ylabelsGroup.selectAll("text")
     }
   }
 });
+
 }).catch(function(error) {
   console.log(error);
 });

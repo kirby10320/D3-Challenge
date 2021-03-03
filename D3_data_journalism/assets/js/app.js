@@ -126,11 +126,11 @@ function updateToolTip(selectXAxis, selectYAxis, textGroup) {
     return (`${d.state}<br>${xlabel} ${d[selectXAxis]}<br>${ylabel} ${d[selectYAxis]}`);
   });
   textGroup.call(toolTip);
-  textGroup.on("mouseover", function(data) { // on mouseover event
+  textGroup.on("mouseover", function(data) { // mouseover event
     toolTip.show(data, this);
   })
  
-  // on mouseout event
+  // mouseout event
  .on("mouseout", function(data) {
   toolTip.hide(data);
 });

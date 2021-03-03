@@ -55,7 +55,7 @@ function renderXAxis(newXScale, xAxis) {
   return xAxis;
 }
 
-function renderYAxes(newYScale, yAxis) {
+function renderYAxis(newYScale, yAxis) {
   var leftAxis = d3.axisLeft(newYScale);
   yAxis.transition()
     .duration(1000)
@@ -88,7 +88,7 @@ function yrenderCircles(circlesGroup, newYScale, selectYAxis) {
   return circlesGroup;
 }
 
-// function for updating text group with transition to new circles upon click on x axis label
+// function for updating text group with transition to new circles upon click on y axis label
 function yrenderText(textGroup, newYScale, selectYAxis) {
     
   textGroup.transition()
@@ -261,7 +261,7 @@ d3.csv("assets/data/data.csv").then(function(censusData, err) {
 xLinearScale = xScale(censusData, selectXAxis);
 
 // updates x axis with transition
-xAxis = renderXAxes(xLinearScale, xAxis);
+xAxis = renderXAxis(xLinearScale, xAxis);
 
 // updates circles with new x values
 circlesGroup = xrenderCircles(circlesGroup, xLinearScale, selectXAxis);
@@ -321,7 +321,7 @@ ylabelsGroup.selectAll("text")
     yLinearScale = yScale(censusData, selectYAxis);
  
     // updates y axis with transition
-    yAxis = renderYAxes(yLinearScale, yAxis);
+    yAxis = renderYAxis(yLinearScale, yAxis);
  
     // updates circles and text with new y values
     circlesGroup = yrenderCircles(circlesGroup, yLinearScale, selectYAxis);
